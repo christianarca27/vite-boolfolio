@@ -31,7 +31,7 @@ export default {
 
 <template>
     <main>
-        <div class="container py-5">
+        <div v-if="projects.length > 0" class="container py-5">
             <h1>Lista progetti</h1>
 
             <div class="row">
@@ -40,7 +40,19 @@ export default {
                 </div>
             </div>
         </div>
+
+        <div v-else class="loading d-flex justify-content-center align-items-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
     </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+main {
+    .loading {
+        height: 100vh;
+    }
+}
+</style>
