@@ -28,7 +28,7 @@ export default {
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .card {
     max-height: 300px;
     height: 100%;
