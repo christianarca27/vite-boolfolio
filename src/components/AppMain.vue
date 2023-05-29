@@ -31,7 +31,7 @@ export default {
 
 <template>
     <main>
-        <div class="container">
+        <div class="container py-5">
             <h1>Lista progetti</h1>
 
             <div class="row">
