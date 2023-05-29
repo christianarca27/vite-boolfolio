@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'AppCard',
+    name: 'ProjectCard',
 
     data() {
         return {

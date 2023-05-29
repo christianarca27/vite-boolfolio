@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import AppCard from './AppCard.vue';
+import ProjectCard from './ProjectCard.vue';
 
 export default {
     name: 'AppMain',
@@ -24,7 +24,7 @@ export default {
     },
 
     components: {
-        AppCard,
+        ProjectCard,
     }
 }
 </script>
@@ -36,7 +36,7 @@ export default {
 
             <div class="row">
                 <div class="col-4 g-4" v-for="project in projects">
-                    <AppCard :project="project"></AppCard>
+                    <ProjectCard :project="project"></ProjectCard>
                 </div>
             </div>
         </div>
