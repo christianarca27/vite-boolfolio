@@ -1,24 +1,25 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
 
 export default {
-  data() {
-    return {
-    }
-  },
+    name: "App",
 
-  components: {
-    AppMain,
-    AppHeader
-  },
+    data() {
+        return {
+
+        };
+    },
+
+    components: {
+        AppHeader,
+    }
 }
 </script>
 
 <template>
-  <AppHeader></AppHeader>
+    <AppHeader></AppHeader>
 
-  <AppMain></AppMain>
+    <router-view></router-view>
 </template>
 
 <style lang="scss" scoped></style>

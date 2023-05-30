@@ -1,9 +1,9 @@
 <script>
 import axios from 'axios';
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
 
 export default {
-    name: 'AppMain',
+    name: 'ProjectsIndex',
 
     data() {
         return {
@@ -19,7 +19,7 @@ export default {
         }
     },
 
-    created() {
+    mounted() {
         this.getProjects();
     },
 
@@ -35,7 +35,7 @@ export default {
             <h1>Lista progetti</h1>
 
             <div class="row">
-                <div class="col-4 g-4" v-for="project in projects">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 g-4" v-for="project in projects">
                     <ProjectCard :project="project"></ProjectCard>
                 </div>
             </div>
