@@ -32,8 +32,8 @@ export default {
 <template>
     <div class="card">
         <img v-if="project.preview" :src="preview" class="card-img-top" alt="Project preview">
-        <img v-else="project.preview" src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-            class="card-img-top" alt="Project preview">
+        <img v-else src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" class="card-img-top"
+            alt="Project preview">
 
         <div class="card-body">
             <h5 class="card-title">{{ project.title }}</h5>
@@ -51,7 +51,8 @@ export default {
 
             <p class="card-text">{{ shortDescription }}</p>
 
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <router-link class="btn btn-primary"
+                :to="{ name: 'projects.show', params: { slug: project.slug } }">Dettagli</router-link>
         </div>
     </div>
 </template>

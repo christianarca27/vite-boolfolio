@@ -52,7 +52,7 @@ export default {
 <style lang="scss" scoped>
 main {
     .loading {
-        height: 100vh;
+        height: calc(100vh - 56px - 112px);
     }
 }
 </style>
