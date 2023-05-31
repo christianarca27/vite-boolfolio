@@ -52,6 +52,14 @@ export default {
                 <img v-else src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
                     class="card-img-top" alt="Project preview">
 
+                <p><strong>Tipo:</strong> {{ project.type?.name }}</p>
+
+                <div class="pills d-flex gap-1">
+                    <span v-for="technology in project.technologies" class="badge rounded-pill"
+                        :style="{ backgroundColor: technology.color }">{{
+                            technology.name }}</span>
+                </div>
+
                 <p>{{ project.description }}</p>
 
                 <a :href="project.url" target="_blank" rel="noopener noreferrer">Github</a>
