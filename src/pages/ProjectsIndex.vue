@@ -9,24 +9,38 @@ export default {
         return {
             projects: [],
 
+            types: [],
+
             queryReady: false,
 
             querySuccess: false,
+
+            filteredCategoryId: '',
         }
     },
 
     methods: {
         getProjects() {
-            axios.get('http://127.0.0.1:8000/api/projects').then(res => {
+            let queryUrl = '';
+
+            if (this.filteredCategoryId) {
+                queryUrl = 'http://127.0.0.1:8000/api/projects?type_id=' + this.filteredCategoryId;
+            }
+            else {
+                queryUrl = 'http://127.0.0.1:8000/api/projects';
+            }
+
+            axios.get(queryUrl).then(res => {
                 this.querySuccess = res.data.success;
 
                 if (this.querySuccess) {
                     this.projects = res.data.results;
+                    this.types = res.data.types;
                 }
 
                 this.queryReady = true;
             });
-        }
+        },
     },
 
     mounted() {
@@ -44,6 +58,14 @@ export default {
         <div v-if="queryReady" class="container py-5">
             <div v-if="querySuccess" id="projects">
                 <h1>Lista progetti</h1>
+
+                <div class="input-group">
+                    <select @change="getProjects()" class="form-select" v-model="filteredCategoryId">
+                        <option value="" selected>Tutti</option>
+
+                        <option v-for="singleType in types" :value="singleType.id">{{ singleType.name }}</option>
+                    </select>
+                </div>
 
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-4 col-xl-3 g-4" v-for="project in projects">
