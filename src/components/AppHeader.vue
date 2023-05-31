@@ -20,13 +20,16 @@ export default {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <router-link class="nav-link active" :to="{ name: 'home' }">Home</router-link>
+                            <router-link class="nav-link" :class="$route.name == 'home' ? 'active' : ''"
+                                :to="{ name: 'home' }">Home</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link class="nav-link" :to="{ name: 'projects.index' }">Progetti</router-link>
+                            <router-link class="nav-link" :class="$route.name == 'home' ? 'projects.index' : ''"
+                                :to="{ name: 'projects.index' }">Progetti</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link class="nav-link" :to="{ name: 'about' }">About me</router-link>
+                            <router-link class="nav-link" :class="$route.name == 'home' ? 'about' : ''"
+                                :to="{ name: 'about' }">About me</router-link>
                         </li>
                     </ul>
                 </div>
