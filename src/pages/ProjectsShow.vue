@@ -8,7 +8,7 @@ export default {
 
             project: [],
 
-            queryLoading: false,
+            queryReady: false,
 
             querySuccess: false,
         }
@@ -25,7 +25,7 @@ export default {
                     this.project = res.data.result;
                 }
 
-                this.queryLoading = true;
+                this.queryReady = true;
             });
         }
     },
@@ -44,9 +44,9 @@ export default {
 
 <template>
     <main>
-        <div v-if="this.queryLoading" class="container py-5">
-            <div class="project" v-if="this.querySuccess">
-                <h1>{{ this.project.title }}</h1>
+        <div v-if="queryReady" class="container py-5">
+            <div class="project" v-if="querySuccess">
+                <h1>{{ project.title }}</h1>
 
                 <img v-if="project.preview" :src="preview" alt="Project preview">
                 <img v-else src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
