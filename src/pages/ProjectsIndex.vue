@@ -99,7 +99,7 @@ export default {
 
 <template>
     <main>
-        <div v-if="queryReady" class="container py-5">
+        <div v-if="queryReady" class="container">
             <div v-if="querySuccess" id="projects">
                 <h1>Progetti</h1>
 

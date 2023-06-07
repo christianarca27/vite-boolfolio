@@ -48,27 +48,32 @@ export default {
 
 <template>
     <main>
-        <div v-if="queryReady" class="container py-5">
+        <div v-if="queryReady" class="container">
             <div class="project" v-if="querySuccess">
                 <h1>{{ project.title }}</h1>
 
-                <p>
+                <div class="mb-3">
                     <strong>Tipo: </strong>
                     <span>{{ project.type.name }}</span>
-                </p>
+                </div>
 
-                <div class="pills d-flex gap-1">
+                <div class="pills d-flex gap-1 mb-3">
                     <strong>Tecnologie: </strong>
                     <span v-for="technology in project.technologies" class="badge rounded-pill"
                         :style="{ backgroundColor: technology.color }">{{
                             technology.name }}</span>
                 </div>
 
-                <img v-if="project.preview" :src="preview" alt="Project preview">
-                <img v-else src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-                    class="card-img-top" alt="Project preview">
+                <div class="project-preview mb-3">
+                    <img v-if="project.preview" :src="preview" alt="Project preview">
+                    <img v-else src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+                        class="card-img-top" alt="Project preview">
+                </div>
 
-                <p>{{ project.description }}</p>
+                <div class="project-description">
+                    <strong>Descrizione: </strong>
+                    <p>{{ project.description }}</p>
+                </div>
 
                 <a class="btn btn-warning" :href="project.url" target="_blank" rel="noopener noreferrer">GitHub</a>
 
