@@ -4,25 +4,29 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            slug: '',
+            slug: this.$route.params.slug,
 
-            project: [],
+            project: {},
 
             queryReady: false,
 
             querySuccess: false,
+
+            error: '',
         }
     },
 
     methods: {
         getProject() {
-            this.slug = this.$route.params.slug;
-
             axios.get('http://127.0.0.1:8000/api/projects/' + this.slug).then(res => {
                 this.querySuccess = res.data.success;
 
                 if (this.querySuccess) {
                     this.project = res.data.result;
+                    document.title += ' - ' + this.project.title;
+                }
+                else {
+                    this.error = res.data.error;
                 }
 
                 this.queryReady = true;
@@ -66,7 +70,7 @@ export default {
             </div>
 
             <div v-else class="alert alert-danger" role="alert">
-                Progetto non esistente!
+                {{ error }}
             </div>
         </div>
 

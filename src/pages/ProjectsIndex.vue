@@ -15,6 +15,8 @@ export default {
 
             querySuccess: false,
 
+            error: '',
+
             filteredCategoryId: '',
         }
     },
@@ -36,6 +38,9 @@ export default {
                 if (this.querySuccess) {
                     this.projects = res.data.results;
                     this.types = res.data.types;
+                }
+                else {
+                    this.error = res.data.error;
                 }
 
                 this.queryReady = true;
@@ -75,7 +80,7 @@ export default {
             </div>
 
             <div v-else class="alert alert-info" role="alert">
-                Nessun progetto trovato...
+                {{ error }}
             </div>
         </div>
 
