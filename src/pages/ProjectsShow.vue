@@ -52,21 +52,29 @@ export default {
             <div class="project" v-if="querySuccess">
                 <h1>{{ project.title }}</h1>
 
-                <img v-if="project.preview" :src="preview" alt="Project preview">
-                <img v-else src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-                    class="card-img-top" alt="Project preview">
-
-                <p><strong>Tipo:</strong> {{ project.type?.name }}</p>
+                <p>
+                    <strong>Tipo: </strong>
+                    <span>{{ project.type.name }}</span>
+                </p>
 
                 <div class="pills d-flex gap-1">
+                    <strong>Tecnologie: </strong>
                     <span v-for="technology in project.technologies" class="badge rounded-pill"
                         :style="{ backgroundColor: technology.color }">{{
                             technology.name }}</span>
                 </div>
 
+                <img v-if="project.preview" :src="preview" alt="Project preview">
+                <img v-else src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+                    class="card-img-top" alt="Project preview">
+
                 <p>{{ project.description }}</p>
 
-                <a :href="project.url" target="_blank" rel="noopener noreferrer">Github</a>
+                <a class="btn btn-warning" :href="project.url" target="_blank" rel="noopener noreferrer">GitHub</a>
+
+                <hr class="mb-3">
+
+                <router-link :to="{ name: 'projects.index' }">Torna alla lista completa</router-link>
             </div>
 
             <div v-else class="alert alert-danger" role="alert">
