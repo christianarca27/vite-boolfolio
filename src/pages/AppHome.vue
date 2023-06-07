@@ -1,10 +1,17 @@
 <script>
+export default {
+    data() {
+        return {
+
+        }
+    },
+}
 </script>
 
 <template>
     <main>
-        <div class="container py-5">
-            <h1 class="mb-3">Homepage</h1>
+        <div class="container">
+            <h1>Homepage</h1>
         </div>
     </main>
 </template>

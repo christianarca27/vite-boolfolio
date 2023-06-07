@@ -1,8 +1,16 @@
-<script></script>
+<script>
+export default {
+    data() {
+        return {
+
+        }
+    },
+}
+</script>
 
 <template>
     <main>
-        <div class="container py-5">
+        <div class="container">
             <h1>About me</h1>
         </div>
     </main>
